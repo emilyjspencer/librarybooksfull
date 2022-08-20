@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from 'src/models/Book.model';
 
 @Injectable({
@@ -19,13 +20,14 @@ export class BooksService {
     {
       title: 'Finding Sisu',
       author: 'Katja Pantzar',
-      genre: 'Self-helf',
+      genre: 'Self-help',
       isbn: '349384434344',
       fiction: false,
     },
   ];
 
-  getBooks(): Book[] {
-    return this.books;
+  getBooks(): Observable<any> {
+    return this.http.get('http://localhost:3002/books/');
   }
+
 }

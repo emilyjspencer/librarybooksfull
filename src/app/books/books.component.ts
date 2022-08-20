@@ -11,10 +11,12 @@ export class BooksComponent implements OnInit {
 
   constructor(private booksService: BooksService) { }
 
-  books: Book[] = [];
+  books!: Book[];
 
   ngOnInit(): void {
-    this.books = this.booksService.getBooks()
+    this.booksService.getBooks().subscribe(data =>{
+      this.books = data;
+    })
   }
 
 }
