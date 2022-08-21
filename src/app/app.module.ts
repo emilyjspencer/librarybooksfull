@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { BooksComponent } from './books/books.component';
 import { BooksService } from './books.service';
-import { RecommendedDialogComponent } from './recommended-dialog/recommended-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RecommendedDialogComponent } from './recommended-dialog/recommended-dialog.component';
 
 
 @NgModule({
@@ -24,11 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
 
   ],
-  providers: [BooksService],
+  providers: [BooksService]
+  ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

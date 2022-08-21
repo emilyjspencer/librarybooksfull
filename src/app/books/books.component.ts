@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Book } from 'src/models/Book.model';
 import { BooksService } from '../books.service';
 import { RecommendedDialogComponent } from '../recommended-dialog/recommended-dialog.component';
@@ -24,10 +24,17 @@ export class BooksComponent implements OnInit {
   }
 
    openDialog() {
-    this.dialog.open(RecommendedDialogComponent, {
-      data: {
-        title: 'The Girl of Ink and Stars',
-      },
-})  }
+    const dialogConfig = new MatDialogConfig();
 
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+
+        title: 'The Girl of Ink and Starts'
+    };
+
+    this.dialog.open(RecommendedDialogComponent, dialogConfig);
+
+  }
 }
